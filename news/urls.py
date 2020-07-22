@@ -16,10 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from .views import index, test
+from .views import *
 
 
 urlpatterns = [
-    path('', index),
-    path('test', test),
+    path('', index, name='home'),
+    path('category/<int:category_id>/', get_category, name='category')
 ]
