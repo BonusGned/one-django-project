@@ -1,7 +1,17 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
+from . import forms
 from .models import News, Category
+
+
+# class NewsAdminForm(forms.ModelForm):
+#     content = forms.CharField(widget=CKEditorUploadingWidget())
+#
+#     class Meta:
+#         model = News
+#         fields = '__all__'
 
 class NewsAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'category', 'created_at', 'update_at', 'is_published', 'get_photo')
